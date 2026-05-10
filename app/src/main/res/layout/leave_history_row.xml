@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.dmia.bioAttendance.model.LeaveHistoryModelResponse" />
+
+        <variable
+            name="onItemClick"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_9sdp"
+        app:cardElevation="@dimen/_1sdp"
+        app:contentPadding="@dimen/_9sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/header_lyout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/name_txt"
+                        style="@style/Ag_body_large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.name}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="Krishna kanth" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/leavetype_txt"
+                        style="@style/AG_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:text="@{item.leavetype}"
+                        android:textColor="#99433C3C"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="Sick Leave" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/reason_txt"
+                        style="@style/AG_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:text="@{item.leavetype}"
+                        android:textColor="#99433C3C"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="Fever" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/startdate_txt"
+                        style="@style/Ag_body_large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.startDate}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="02/02/2024" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/enddate_txt"
+                        style="@style/AG_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:text="@{ item.endDate}"
+                        android:textColor="#9A000000"
+                        android:textSize="@dimen/_12ssp"
+                        tools:text="03/02/2024" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_lyout">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/approvedvy_txt"
+                    style="@style/Ag_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="Approved By : Ravi Krishna"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/leavestatus_txt"
+                    style="@style/Ag_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="Approve"
+                    android:textColor="@color/color_0CA95B"
+                    android:textSize="@dimen/_14ssp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/noofdays"
+                    style="@style/Ag_body_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="No Of Days: 4"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

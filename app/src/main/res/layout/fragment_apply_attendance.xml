@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="applyAttendanceViewModel"
+            type="com.dmia.bioAttendance.ui.userDashBoard.applyAttendance.ApplyAttendanceViewModel" />
+
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.userDashBoard.applyAttendance.ApplyAttendanceFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_F2F2F2">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/leavetype_til"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_weight="0.5"
+                            android:focusableInTouchMode="true"
+                            android:hint="Select Leave Type"
+                            app:boxBackgroundMode="outline"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:counterTextColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_tasks"
+                                style="@style/AG_regular"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="false"
+                                android:cursorVisible="false"
+                                android:drawableEnd="@drawable/ic_drop_down"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:focusable="false"
+                                android:maxLength="50"
+                                android:textColorHint="@color/color_7C7C7C"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/dates_lyout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/leavetype_til">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/startdate_til"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_weight="0.5"
+                                android:focusableInTouchMode="true"
+                                app:boxBackgroundMode="outline"
+                                app:boxStrokeColor="@color/colorPrimary"
+                                app:counterTextColor="@color/black">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/et_dob"
+                                    style="@style/AG_regular"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_drop_down"
+                                    android:focusable="false"
+                                    android:hint="Start Date"
+                                    android:textColorHint="@color/color_7C7C7C"
+                                    android:textSize="@dimen/_12ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/enddate_til"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_weight="0.5"
+                                android:focusableInTouchMode="true"
+                                app:boxBackgroundMode="outline"
+                                app:boxStrokeColor="@color/colorPrimary"
+                                app:counterTextColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/startdate_til">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/end_et"
+                                    style="@style/AG_regular"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableEnd="@drawable/ic_drop_down"
+                                    android:focusable="false"
+                                    android:hint="End Date"
+                                    android:textColorHint="@color/color_7C7C7C"
+                                    android:textSize="@dimen/_12ssp" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/noofdays_til"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:focusableInTouchMode="true"
+                            app:boxBackgroundMode="outline"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:counterTextColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/dates_lyout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nofd_et"
+                                style="@style/AG_regular"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:hint="No of Days"
+                                android:textColorHint="@color/color_7C7C7C"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/halfday_cbx"
+                            style="@style/AG_bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:text="Half Day"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_14ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/noofdays_til" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/etremarks_til"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_150sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_weight="0.5"
+                            android:background="@color/color_F2F2F2"
+                            android:focusableInTouchMode="true"
+                            android:hint="Remarks"
+                            app:boxBackgroundMode="outline"
+                            app:boxStrokeColor="@color/colorAccent"
+                            app:counterTextColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/halfday_cbx">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_remarks"
+                                style="@style/AG_regular"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="top|start"
+                                android:maxLength="200"
+                                android:textColorHint="@color/color_7C7C7C"
+                                android:textSize="@dimen/_12ssp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/addattachemnt_txt"
+                            style="@style/Ag_body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="Add Attachment"
+                            android:textColor="@color/colorPrimary"
+                            app:drawableStartCompat="@drawable/issueattachment"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/etremarks_til" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_120sdp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/addattachemnt_txt" />
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/submit_btn"
+                            style="@style/AG_regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:text="Apply Leave"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_14ssp"
+                            app:cornerRadius="@dimen/_25sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+                        <ProgressBar
+                            android:id="@+id/pggBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{applyAttendanceViewModel.isloading ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="gone" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

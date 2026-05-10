@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.InputType" />
+
+        <variable
+            name="onItemClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="vm"
+            type="com.dmia.bioAttendance.ui.userDashBoard.UserDashboardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.UserUserDashboardActivity.UserDashboardActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none"
+                tools:ignore="UselessParent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_260sdp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/appimg" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Ag_body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/proximanovaaltbold"
+                            android:gravity="center"
+                            android:text="Attendance"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/mainlayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/dashboarddata_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="visible"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/register_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_18sdp"
+                                    android:padding="@dimen/_8sdp"
+                                    app:cardBackgroundColor="@color/colorAccent"
+                                    app:cardCornerRadius="@dimen/_3sdp"
+                                    app:cardElevation="@dimen/_5sdp"
+                                    app:contentPadding="@dimen/_15sdp">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/register_txt"
+                                        style="@style/AG_altbold"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text=""
+                                        android:textColor="#FFFFFF"
+                                        android:textSize="@dimen/_16ssp"
+                                        android:textStyle="bold" />
+
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:id="@+id/attendance_lyout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <com.google.android.material.card.MaterialCardView
+                                            android:id="@+id/checkinattendance_layout"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="@dimen/_12sdp"
+                                            android:clickable="@{vm.checkin}"
+                                            android:enabled="@{vm.checkin}"
+                                            android:focusable="true"
+                                            android:padding="@dimen/_8sdp"
+                                            app:cardBackgroundColor="@{vm.checkin ? @color/colorAccent : @color/color_7C7C7C}"
+                                            app:cardCornerRadius="12dp"
+                                            app:cardElevation="4dp"
+                                            app:cardUseCompatPadding="true"
+                                            app:contentPadding="@dimen/_16sdp"
+                                            app:strokeColor="@{vm.checkin ? @color/colorAccent : @color/color_7C7C7C}"
+                                            app:strokeWidth="1dp">
+
+                                            <androidx.appcompat.widget.AppCompatTextView
+                                                style="@style/Ag_label"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:gravity="center"
+                                                android:text="Check in"
+                                                android:textColor="#FFFFFF"
+                                                android:textSize="@dimen/_14sdp"
+                                                android:textStyle="bold" />
+
+
+                                        </com.google.android.material.card.MaterialCardView>
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/Ag_body"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:text="@{vm.checkindatetime}"
+                                            android:textColor="@color/colorAccent"
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textStyle="bold"
+                                            tools:text="21/02/2026 10:24:35" />
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <com.google.android.material.card.MaterialCardView
+                                            android:id="@+id/checkoutattendance_layout"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="@dimen/_12sdp"
+                                            android:clickable="@{vm.checkout}"
+                                            android:enabled="@{vm.checkout}"
+                                            android:focusable="true"
+                                            android:padding="@dimen/_8sdp"
+                                            app:cardBackgroundColor="@{vm.checkout ? @color/colorAccent : @color/color_7C7C7C}"
+                                            app:cardCornerRadius="12dp"
+                                            app:cardElevation="4dp"
+                                            app:cardUseCompatPadding="true"
+                                            app:contentPadding="@dimen/_16sdp"
+                                            app:strokeColor="@{vm.checkout ? @color/colorAccent : @color/color_7C7C7C}"
+                                            app:strokeWidth="1dp">
+
+                                            <androidx.appcompat.widget.AppCompatTextView
+                                                style="@style/Ag_label"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:gravity="center"
+                                                android:text="Check out"
+                                                android:textColor="#FFFFFF"
+                                                android:textSize="@dimen/_14sdp"
+                                                android:textStyle="bold" />
+
+
+                                        </com.google.android.material.card.MaterialCardView>
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            style="@style/Ag_body"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:maxLines="2"
+                                            android:text="@{vm.checkoutdatetime}"
+                                            android:textColor="@color/colorAccent"
+                                            android:textSize="@dimen/_12sdp"
+                                            android:textStyle="bold"
+                                            tools:text="21/02/2026 10:24:35" />
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/login_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/_18sdp"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/nameWrapper"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_8sdp"
+                                    android:textColorHint="@color/black">
+
+                                    <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/username"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="Name"
+                                        android:inputType="textEmailAddress"
+                                        android:maxLines="1"
+                                        android:singleLine="true"
+                                        android:textColor="@color/black"
+                                        android:textColorHint="@color/colorAccent"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/passwordWrapper"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_6sdp"
+                                    android:textColorHint="@color/black">
+
+                                    <androidx.appcompat.widget.AppCompatEditText
+                                        android:id="@+id/password"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:hint="Password"
+                                        android:inputType="textPassword"
+                                        android:maxLines="1"
+                                        android:singleLine="true"
+                                        android:textColor="@color/black"
+                                        android:textColorHint="@color/colorAccent"
+                                        android:textSize="@dimen/_12ssp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/loginbtn_layout"
+                                    android:layout_width="@dimen/_90sdp"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/_16sdp"
+                                    app:cardBackgroundColor="@color/colorAccent"
+                                    app:cardCornerRadius="@dimen/_3sdp"
+                                    app:cardElevation="@dimen/_5sdp"
+                                    app:contentPadding="@dimen/_8sdp">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        style="@style/AG_altbold"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text="Login"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+
+
+                                </androidx.cardview.widget.CardView>
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/admin_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom"
+                                android:layout_marginEnd="@dimen/_18sdp"
+                                android:layout_marginBottom="@dimen/_18sdp"
+                                android:background="@color/colorAccent"
+                                android:text="Admin"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_12ssp"
+                                android:visibility="visible"
+                                app:cornerRadius="@dimen/_7sdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <ProgressBar
+                        android:id="@+id/pgBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{vm.isloading ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
