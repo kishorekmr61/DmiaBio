@@ -337,20 +337,20 @@ class UserDashboardActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        normalizeForNewDay()
+//        normalizeForNewDay()
         updateButtonState()
 
     }
 
 
-    private fun normalizeForNewDay() {
-        if (!isToday(AppPreference.read(ApiConstant.ATTENDANCECHECKINTIME, ""))) {
-            AppPreference.write(ApiConstant.ATTENDANCECHECKIN, false)
-            AppPreference.write(ApiConstant.ATTENDANCECHECKOUT, false)
-            AppPreference.write(ApiConstant.ATTENDANCECHECKINTIME, "")
-            AppPreference.write(ApiConstant.ATTENDANCECHECKOUTTIME, "")
-            AppPreference.write(ApiConstant.ATTENDANCECHECKINTIME, "")
-        }
-    }
+//    private fun normalizeForNewDay() {
+//        if (!isToday(AppPreference.read(ApiConstant.ATTENDANCECHECKINTIME, ""))) {
+//            AppPreference.write(ApiConstant.ATTENDANCECHECKIN, false)
+//            AppPreference.write(ApiConstant.ATTENDANCECHECKOUT, false)
+//            AppPreference.write(ApiConstant.ATTENDANCECHECKINTIME, "")
+//            AppPreference.write(ApiConstant.ATTENDANCECHECKOUTTIME, "")
+//            AppPreference.write(ApiConstant.ATTENDANCECHECKINTIME, "")
+//        }
+//    }
 
 }
